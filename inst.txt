@@ -1,0 +1,16 @@
+docker build . -t jeetendrareddy76/expense:1.n  (n = 1,2,3,4,5...)
+
+docker run -p 80:8000 jeetendrareddy76/expense:1.n 
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 859762158519.dkr.ecr.us-east-1.amazonaws.com
+
+venv/Scripts/Activate.ps1 
+
+python -m venv venv      
+
+docker build -t docker-app .         
+
+docker tag docker-app:latest 859762158519.dkr.ecr.us-east-1.amazonaws.com/docker-app:latest
+
+docker push 859762158519.dkr.ecr.us-east-1.amazonaws.com/docker-app:latest  
+
